@@ -1,21 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class ToggleObjVisibility : MonoBehaviour
 {
-    public GameObject obj1;
-    public GameObject obj2;
-
-    private bool isObj1Visible = true;
+    private bool areAToggleablesVisisble = true;
 
     void Start()
     {
-        obj1.SetActive(isObj1Visible);
-        obj2.SetActive(!isObj1Visible);
+        SetAllToggleablesVisibility();
     }
 
-    // Update is called once per frame
     void Update()
     {
         HandleVisisbilityToggle();
@@ -25,10 +21,26 @@ public class ToggleObjVisibility : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
-            isObj1Visible = !isObj1Visible;
-            obj1.SetActive(isObj1Visible);
-            obj2.SetActive(!isObj1Visible);
-        }
+            areAToggleablesVisisble = !areAToggleablesVisisble;
 
+            SetAllToggleablesVisibility();
+        }
+    }
+
+    private void SetSingleToggleablesArrVisibility(GameObject[] toggleables, bool visible)
+    {
+            foreach (GameObject gameObj in toggleables)
+            {
+                gameObj.SetActive(visible);
+            }
+    }
+
+    private void SetAllToggleablesVisibility()
+    {
+        GameObject[] toggleablesA = GameObject.FindObjectsOfType<ToggleableVisibilityA>(true).Select(type => type.transform.gameObject).ToArray();
+        GameObject[] toggleablesB = GameObject.FindObjectsOfType<ToggleableVisibilityB>(true).Select(type => type.transform.gameObject).ToArray();
+   
+        SetSingleToggleablesArrVisibility(toggleablesA, areAToggleablesVisisble);
+        SetSingleToggleablesArrVisibility(toggleablesB, !areAToggleablesVisisble);
     }
 }
