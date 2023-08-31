@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SavePointState : MonoBehaviour
+public class SavePointService : MonoBehaviour
 {
     List<GameObject> visitedSavePoints;
 
@@ -19,5 +19,10 @@ public class SavePointState : MonoBehaviour
             visitedSavePoints.Add(savePoint);
             Debug.Log(visitedSavePoints.Count);
         }
+    }
+
+    public GameObject GetLastVisited()
+    {
+        return visitedSavePoints[visitedSavePoints.Count-1];
     }
 }

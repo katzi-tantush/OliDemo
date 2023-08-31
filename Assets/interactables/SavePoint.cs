@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class SavePoint : MonoBehaviour
 {
-    GameObject saveDisk;
-    SavePointState savePointState;
+    SavePointService savePointState;
 
     private void Start()
     {
-        savePointState = GameObject.FindObjectOfType<SavePointState>();
+        savePointState = GameObject.FindObjectOfType<SavePointService>();
     }
 
     private void OnTriggerEnter(Collider other)
