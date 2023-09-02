@@ -17,7 +17,6 @@ public class SavePointService : MonoBehaviour
         if (unVisitedSavePoint)
         {
             visitedSavePoints.Add(savePoint);
-            Debug.Log(visitedSavePoints.Count);
         }
     }
 

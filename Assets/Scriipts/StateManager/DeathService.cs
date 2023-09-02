@@ -19,6 +19,5 @@ public class DeathService : MonoBehaviour
     {
         GameObject lastSavePoint = savePointService.GetLastVisited();
         player.transform.position = lastSavePoint.transform.position;
-        Debug.Log("restart");
     }
 }

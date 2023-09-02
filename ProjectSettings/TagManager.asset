@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ToggleableVisibilityA
   - ToggleableVisibilityB
+  - DisplayText
   layers:
   - Default
   - TransparentFX

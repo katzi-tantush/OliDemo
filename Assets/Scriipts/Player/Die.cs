@@ -9,7 +9,6 @@ public class Die : MonoBehaviour
     private void Start()
     {
         deathService = GameObject.FindObjectOfType<DeathService>();
-        Debug.Log(deathService.ToString());
     }
 
     void Update()
